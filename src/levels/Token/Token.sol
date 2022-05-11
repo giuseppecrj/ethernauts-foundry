@@ -7,13 +7,13 @@ contract Token {
   mapping(address => uint) balances;
   uint public totalSupply;
 
-  constructor(uint _initialSupply) public {
+  constructor(uint _initialSupply) {
     balances[msg.sender] = totalSupply = _initialSupply;
   }
 
   function transfer(address _to, uint _value) public returns (bool) {
 
-    // Solidity ^0.8.0 prevents overflows/underflows so need to have it unchecked 
+    // Solidity ^0.8.0 prevents overflows/underflows so need to have it unchecked
     unchecked {
         require(balances[msg.sender] - _value >= 0);
         balances[msg.sender] -= _value;

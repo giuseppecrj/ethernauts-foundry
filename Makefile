@@ -4,6 +4,8 @@
 
 all: clean install update build
 
+node: yarn hardhat node
+
 # Install proper solc version.
 solc:; nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA solc-static-versions.solc_0_8_13
 

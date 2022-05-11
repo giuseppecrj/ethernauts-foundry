@@ -9,7 +9,7 @@ contract DelegationFactory is Level {
 
   address delegateAddress;
 
-  constructor() public {
+  constructor() {
     Delegate newDelegate = new Delegate(address(0));
     delegateAddress = address(newDelegate);
   }
@@ -20,7 +20,7 @@ contract DelegationFactory is Level {
     return address(parity);
   }
 
-  function validateInstance(address payable _instance, address _player) override public returns (bool) {
+  function validateInstance(address payable _instance, address _player) override public view returns (bool) {
     Delegation parity = Delegation(_instance);
     return parity.owner() == _player;
   }
